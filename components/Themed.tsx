@@ -3,43 +3,28 @@
  * https://docs.expo.io/guides/color-schemes/
  */
 
-import { Text as DefaultText, View as DefaultView } from 'react-native';
+import { Text as DefaultText, View as DefaultView, styled } from "tamagui";
+import { SafeAreaView as DefaultSafeAreaView } from "react-native-safe-area-context";
 
-import Colors from '@/constants/Colors';
-import { useColorScheme } from './useColorScheme';
-
-type ThemeProps = {
-  lightColor?: string;
-  darkColor?: string;
-};
-
-export type TextProps = ThemeProps & DefaultText['props'];
-export type ViewProps = ThemeProps & DefaultView['props'];
+import { useColorScheme } from "@/components/useColorScheme";
+import tamaguiConfig from "@/tamagui.config";
 
 export function useThemeColor(
-  props: { light?: string; dark?: string },
-  colorName: keyof typeof Colors.light & keyof typeof Colors.dark
+	colorName: keyof (typeof tamaguiConfig.themes)["dark"],
 ) {
-  const theme = useColorScheme() ?? 'light';
-  const colorFromProps = props[theme];
-
-  if (colorFromProps) {
-    return colorFromProps;
-  } else {
-    return Colors[theme][colorName];
-  }
+	const [colorScheme, _] = useColorScheme();
+	const color = tamaguiConfig.themes[colorScheme][colorName];
+	return color.val;
 }
 
-export function Text(props: TextProps) {
-  const { style, lightColor, darkColor, ...otherProps } = props;
-  const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
+export const Text = styled(DefaultText);
 
-  return <DefaultText style={[{ color }, style]} {...otherProps} />;
-}
+export const View = styled(DefaultView, {
+	backgroundColor: "$background",
+	padding: 10,
+});
 
-export function View(props: ViewProps) {
-  const { style, lightColor, darkColor, ...otherProps } = props;
-  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'background');
-
-  return <DefaultView style={[{ backgroundColor }, style]} {...otherProps} />;
-}
+export const SafeAreaView = styled(DefaultSafeAreaView, {
+	backgroundColor: "$background",
+	padding: 10,
+});
