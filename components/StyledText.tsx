@@ -1,5 +1,5 @@
-import { Text } from "./Themed";
+import { Text } from './Themed';
 
 export function MonoText(props: any) {
-	return <Text />;
+  return <Text />;
 }

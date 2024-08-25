@@ -1,6 +1,6 @@
-import { MMKV, useMMKVString } from "react-native-mmkv";
+import { MMKV } from 'react-native-mmkv';
 
 export const storage = new MMKV({
-	id: "com.hadronomy.example",
-	encryptionKey: "ENCRYPTION_KEY",
+  id: 'com.hadronomy.example',
+  encryptionKey: 'ENCRYPTION_KEY'
 });
