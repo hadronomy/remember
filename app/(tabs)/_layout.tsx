@@ -7,6 +7,7 @@ import { useThemeColor } from '@/components/Themed';
 export default function TabLayout() {
   const backgroundColor = useThemeColor('background');
   const tintColor = useThemeColor('accentColor');
+  const borderColor = useThemeColor('borderColor');
   return (
     <Tabs
       screenOptions={{
@@ -19,7 +20,7 @@ export default function TabLayout() {
         },
         tabBarStyle: {
           shadowColor: 'transparent',
-          borderColor: 'transparent'
+          borderColor: borderColor
         },
         tabBarActiveTintColor: tintColor,
         tabBarActiveBackgroundColor: backgroundColor,

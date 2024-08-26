@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-import { Button, YStack } from 'tamagui';
+import { StyleSheet, Vibration } from 'react-native';
+import { Button, XStack, YStack } from 'tamagui';
 
 import { SafeAreaView } from '@/components/Themed';
 
@@ -7,7 +7,15 @@ export default function TabOneScreen() {
   return (
     <SafeAreaView backgroundColor="$background" style={styles.container}>
       <YStack>
-        <Button>I'm just a button</Button>
+        <XStack gap="$2" justifyContent="space-around">
+          <Button
+            size="$6"
+            onPressIn={() => Vibration.vibrate([0, 10000], true)}
+            onPressOut={() => Vibration.cancel()}
+          >
+            I'm just a button
+          </Button>
+        </XStack>
       </YStack>
     </SafeAreaView>
   );
