@@ -14,6 +14,7 @@ import { TamaguiProvider } from 'tamagui';
 import { StatusBar } from 'expo-status-bar';
 import * as NavigationBar from 'expo-navigation-bar';
 import { registerDevMenuItems } from 'expo-dev-menu';
+import { useMMKVDevTools } from '@dev-plugins/react-native-mmkv';
 
 import { tamaguiConfig } from '@/tamagui.config';
 import {
@@ -83,6 +84,8 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
+  useMMKVDevTools();
+
   const [colorScheme, _] = useColorScheme();
   console.debug(`colorScheme: ${colorScheme}`);
   const theme = colorScheme === 'dark' ? DarkTheme : DefaultTheme;

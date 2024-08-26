@@ -1202,6 +1202,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@dev-plugins/react-native-mmkv@npm:^0.0.1":
+  version: 0.0.1
+  resolution: "@dev-plugins/react-native-mmkv@npm:0.0.1"
+  peerDependencies:
+    expo: "*"
+    react-native-mmkv: ^2.0.0
+  checksum: 10c0/92985937a204603e1fd39e6a3ae272c3d15f23b60ce432f85f01b01bac9912bfa0a3cd3d2398dfe37dd22a8bd641adcb65fcaa81bcc59b03633c9fabc7c9958a
+  languageName: node
+  linkType: hard
+
 "@egjs/hammerjs@npm:^2.0.17":
   version: 2.0.17
   resolution: "@egjs/hammerjs@npm:2.0.17"
@@ -14617,6 +14627,7 @@ __metadata:
   resolution: "remember@workspace:."
   dependencies:
     "@babel/core": "npm:^7.20.0"
+    "@dev-plugins/react-native-mmkv": "npm:^0.0.1"
     "@expo/vector-icons": "npm:^14.0.2"
     "@react-navigation/native": "npm:^6.0.2"
     "@tamagui/babel-plugin": "npm:^1.108.4"
