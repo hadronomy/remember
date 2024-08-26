@@ -9,7 +9,8 @@
     "web": "expo start --web",
     "test": "jest --watchAll",
     "generate-themes": "tamagui generate-themes ./constants/theme-builder.ts ./constants/themes.ts",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "format": "prettier --ignore-path .gitignore --write ."
   },
   "jest": {
     "preset": "jest-expo"
